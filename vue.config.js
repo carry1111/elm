@@ -1,9 +1,9 @@
 
-// module.exports = {
+module.exports = {
 //     // 基本路径
-//     baseUrl: 'localhost:8080',
+    baseUrl: './',
 //     // 输出文件目录
-//     outputDir: 'dist',
+    outputDir: 'dist',
 //     // eslint-loader 是否在保存的时候检查
 //     lintOnSave: true,
 //     // use the full build with in-browser compiler?
@@ -52,4 +52,4 @@
 //     pluginOptions: {
 //      // ...
 //     }
-//    }
+   }
