@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div style="height:100px;background:#aaa;"></div>
     <merchantIntroduction></merchantIntroduction>
   </div>
 </template>

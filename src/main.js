@@ -7,6 +7,8 @@ import '@/assets/css/reset.css';
 
 Vue.config.productionTip = false;
 
+require('./mock')
+
 new Vue({
   router,
   store,
