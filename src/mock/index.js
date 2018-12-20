@@ -2,6 +2,7 @@
 const Mock = require('mockjs');
 // 获取 mock.Random 对象
 const Random = Mock.Random;
+
 // mock一组数据
 const produceNewsData = function() {
     let articles = [];
@@ -19,7 +20,19 @@ const produceNewsData = function() {
         articles: articles
     }
 }
- 
+
+//模拟商家数据
+const business_info = ()=>{
+    return {
+        business_name:'肯德基宅急送(鹤龙店)',
+        score:'4.3',
+        monthly_sales_volume:401,
+        delivery_time:30,
+    }
+}
+
+
+
 // Mock.mock( url, post/get , 返回的数据)；
-Mock.mock('/news/index', 'get', produceNewsData);
 Mock.mock('/news/test', 'get', produceNewsData);
+Mock.mock('/business_info', 'get', business_info);

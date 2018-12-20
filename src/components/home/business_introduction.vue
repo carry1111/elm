@@ -1,12 +1,12 @@
 <template>
-    <div id="merchant_introduction">
+    <div id="business_introduction">
         <div class="shop_head">
             <span class="shop_photo"></span>
             <span class="guanzhu"></span>
         </div>
         <div class="shop_name">
-            <h2>肯德基宅急送(鹤龙店)</h2>
-            <p><span>评价4.6</span><span>月售401</span><span>商家配送约30分钟</span></p>
+            <h2>{{result.business_name}}</h2>
+            <p><span>评价{{result.score}}</span><span>月售{{result.monthly_sales_volume}}</span><span>商家配送约{{result.delivery_time}}分钟</span></p>
         </div>
         <div class="content">
             <h5>优惠</h5>
@@ -24,18 +24,26 @@
             <h5>公告</h5>
             <p>本餐厅不使用饿了么配送，由肯德基宅急送官方品牌配送，会员用户无法享受免配送费服务</p>
         </div>
-        <div></div>
+        <div class="foot">
+            <i class="iconfont icon-shanghua"></i>
+        </div>
     </div>
 </template>
 
 <script>
 import api from '@/api/home'
 export default {
-    name:'merchant_introduction',
+    name:'business_introduction',
+    data(){
+        return {
+            result:{},
+        }
+    },
     methods:{
         test(){
-            api.apitest().then(res=>{
+            api.getBusinessInfo().then(res=>{
                 console.log(res);
+                this.result = res.data;
             }).catch(err=>{
                 console.log(err);
             })
@@ -50,7 +58,6 @@ export default {
 
 <style lang="less" scoped>
     .shop_head{
-        text-align: center;
         position: relative;
         .shop_photo{
             display: inline-block;
@@ -76,6 +83,15 @@ export default {
     }
     .content{
         text-align: left;
+    }
+    .foot{
+        position: absolute;
+        width:100%;
+        bottom:0;
+        left:0;
+    }
+    .iconfont{
+        font-size:40px;
     }
 </style>
 

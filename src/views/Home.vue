@@ -1,16 +1,18 @@
 <template>
   <div class="home">
     <div style="height:100px;background:#aaa;"></div>
-    <merchantIntroduction></merchantIntroduction>
+    <businessIntroduction></businessIntroduction>
   </div>
 </template>
 
 <script>
-import merchantIntroduction from '@/components/Home/merchant_introduction'
+import businessIntroduction from '@/components/home/business_introduction'
+import businessTab from '@/components/home/business_tab'
 export default {
   name: "home",
   components: {
-    merchantIntroduction
+    businessIntroduction,
+    businessTab
   }
 };
 </script>

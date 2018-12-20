@@ -11,11 +11,27 @@ export default new Router({
       name: "home",
       component: Home
     },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ "./views/About.vue")
-    // }
+    {
+      path: "/business_tab",
+      name: "business_tab",
+      component: () =>import("@/components/home/business_tab.vue"),
+      children:[
+        {
+          path: "/order",
+          name: "order",
+          component: () =>import("@/components/home/order.vue"),
+        },
+        {
+          path: "/evaluate",
+          name: "evaluate",
+          component: () =>import("@/components/home/evaluate.vue"),
+        },
+        {
+          path: "/business",
+          name: "business",
+          component: () =>import("@/components/home/business.vue"),
+        },
+      ]
+    },
   ]
 });

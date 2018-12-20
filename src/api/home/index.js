@@ -1,7 +1,7 @@
 import ajax from '@/api/ajax.js'
 
 export default{
-    apitest(){
-        return ajax.get('/news/test');
+    getBusinessInfo(){
+        return ajax.get('/business_info');
     }
 }
