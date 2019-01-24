@@ -15,6 +15,7 @@ export default new Router({
       path: "/business_tab",
       name: "business_tab",
       component: () =>import("@/components/home/business_tab.vue"),
+      
       children:[
         {
           path: "/order",
@@ -32,6 +33,11 @@ export default new Router({
           component: () =>import("@/components/home/business.vue"),
         },
       ]
+    },
+    {
+      path: "/order1",
+      name: "order",
+      component: () =>import("@/components/home/order.vue"),
     },
   ]
 });

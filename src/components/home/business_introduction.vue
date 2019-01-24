@@ -24,7 +24,7 @@
             <h5>公告</h5>
             <p>本餐厅不使用饿了么配送，由肯德基宅急送官方品牌配送，会员用户无法享受免配送费服务</p>
         </div>
-        <div class="foot">
+        <div class="foot" @click="showOrder">
             <i class="iconfont icon-shanghua"></i>
         </div>
     </div>
@@ -32,6 +32,7 @@
 
 <script>
 import api from '@/api/home'
+import bus from '@/assets/js/bus.js'
 export default {
     name:'business_introduction',
     data(){
@@ -47,8 +48,10 @@ export default {
             }).catch(err=>{
                 console.log(err);
             })
+        },
+        showOrder(){
+            bus.$emit('showOrder');
         }
-        
     },
     mounted(){
         this.test();
