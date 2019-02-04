@@ -9,7 +9,8 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home
+      redirect: { name: 'business_tab' },
+      component: Home,
     },
     {
       path: "/business_tab",
@@ -34,10 +35,10 @@ export default new Router({
         },
       ]
     },
-    {
-      path: "/order1",
-      name: "order",
-      component: () =>import("@/components/home/order.vue"),
-    },
+    // {
+    //   path: "/order1",
+    //   name: "order",
+    //   component: () =>import("@/components/home/order.vue"),
+    // },
   ]
 });

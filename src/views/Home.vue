@@ -1,8 +1,9 @@
 <template>
   <div class="home">
-    <div style="height:100px;background:#aaa;"></div>
-    <businessIntroduction></businessIntroduction>
-    <businessTab v-show="isShowTab"></businessTab>
+    <!-- <div style="height:100px;background:#aaa;"></div> -->
+    <!-- <businessIntroduction></businessIntroduction> -->
+    <!-- <businessTab v-show="isShowTab"></businessTab> -->
+    <business-tab></business-tab>
   </div>
 </template>
 
