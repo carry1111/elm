@@ -2,13 +2,19 @@
     <div id="business_tab">
         <ul class="nav clearfix">
             <li class="li" @click="index=1">
-                <p class="item">点餐<span :class="{tab:index==1}"></span></p>
+                <p :class="{item: true,jiacu: index == 1}">
+                    点餐<span :class="{tab: index == 1}"></span>
+                </p>
             </li>
             <li class="li" @click="index=2">
-                <p class="item">评价<span :class="{tab:index==2}"></span></p>
+                <p :class="{item: true,jiacu: index == 2}">
+                    评价<span :class="{tab:index==2}"></span>
+                </p>
             </li>
             <li class="li" @click="index=3">
-                <p class="item">商家<span :class="{tab:index==3}"></span></p>
+                <p :class="{item: true,jiacu: index == 3}">
+                    商家<span :class="{tab:index==3}"></span>
+                </p>
             </li>
         </ul>
         <order v-show="index==1"></order>
@@ -39,10 +45,6 @@ export default {
 <style lang='less' scoped>
     @import "./../../assets/less/common.less";
     #business_tab{
-        // position:relative;
-        // top:-200px;
-        // left:0;
-        // right:0;
         z-index:1;
         background:#fff;
         min-height:100%;
@@ -69,7 +71,6 @@ export default {
                     display: inline-block;
                     position: relative;
                     color: #333;
-                    font-weight: 700;
                     .tab{
                         position: absolute;
                         bottom: 0;
@@ -78,6 +79,9 @@ export default {
                         .h(2.5);
                         background-color: rgb(35, 149, 255); 
                     }
+                }
+                .jiacu{
+                    font-weight: 700;
                 }
             }
         }

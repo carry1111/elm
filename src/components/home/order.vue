@@ -4,16 +4,19 @@
             <div class="menu-wrapper" ref="menuWrapper">
                 <ul>
                     <li v-for="(item,index) in goodsList" 
-                        :key=index 
-                        :class="{li:true,active:index==currentMenuIndex}"
-                        @click="selectMenu(index,$event)">
-                        {{item.name}}
+                    :key=index 
+                    :class="{li:true,active:index==currentMenuIndex}"
+                    @click="selectMenu(index,$event)">
+                        <span>{{item.name}}</span>
+                        <count :num="itemSelectNumArray[index]" class="itemSelect"></count>
                     </li>
                 </ul>
             </div>
             <div class="foods-wrapper" ref="foodsWrapper">
                 <ul>
-                    <li v-for="(item,index1) in goodsList" :key=index1 ref="foodsList">
+                    <li v-for="(item,index1) in goodsList" 
+                        :key=index1 
+                        ref="foodsList">
                         <div class="item-title">
                             <strong class="item-name">{{item.name}}</strong>
                             <span class="item-desc" v-show="index1==0">大家喜欢吃,才是真好吃</span>
@@ -39,7 +42,7 @@
                 </ul>
             </div>
         </div>
-        <order-footer :price="totalPrice"></order-footer>
+        <order-footer :price="totalPrice" :num="totalNum"></order-footer>
     </div>
 </template>
 
@@ -47,6 +50,7 @@
 import api from '@/api/goods'
 import BScroll from 'better-scroll'
 import orderFooter from '@/components/home/order_foot.vue'
+import count from '@/components/basic/count.vue'
 export default {
     name:'order',
     data(){
@@ -101,6 +105,8 @@ export default {
             totalPrice: 0,
             isShowReduce: false,
             selectNumArray: [],
+            itemSelectNumArray: [],
+            totalNum: 0,
         }
     },
     computed:{
@@ -128,6 +134,7 @@ export default {
             this.goodsList.forEach((value)=>{
                 var len = value.foods.length;
                 var subArr = [];
+                this.itemSelectNumArray.push(0);
                 for(var i=0; i<len; i++){
                     subArr.push(0);
                 }
@@ -162,14 +169,16 @@ export default {
             this.foodsScroll.scrollToElement(el,300);
         },
         add_cart(price,index1,index2){
-            console.log(index1,index2);
             this.totalPrice += price;
-            // this.isShowReduce = true;
             this.selectNumArray[index1][index2] += 1;
+            this.itemSelectNumArray[index1] += 1;
+            this.totalNum +=1; 
         },
         remove_cart(price,index1,index2){
             this.totalPrice -= price;
             this.selectNumArray[index1][index2] -= 1;
+            this.itemSelectNumArray[index1] -= 1;
+            this.totalNum -= 1;
         }
     },
     created(){
@@ -181,6 +190,7 @@ export default {
     },
     components:{
         orderFooter,
+        count,
     }
 }
 </script>
@@ -196,13 +206,13 @@ export default {
         display: flex;
         display: -webkit-flex;
         text-align: left;
-        position:absolute;
-        top:1rem;
-        bottom:1.2rem;
+        position: absolute;
+        top: 1rem;
+        bottom: 1.3rem;
         .fs(16);
         width: 100%;
         overflow: hidden;
-        flex:1;
+        flex: 1;
         .menu-wrapper{
             flex: 0 0 2.4rem;
             background: #f3f5f7;
@@ -210,9 +220,15 @@ export default {
                 .h(40);
                 .lh(40);
                 .pl(2);
+                position: relative;
+                .itemSelect{
+                    position: absolute;
+                    top: .1rem;
+                    right: .1rem;
+                }   
             }
             .active{
-                background:#fff;
+                background: #fff;
             }
         }
         .foods-wrapper{
