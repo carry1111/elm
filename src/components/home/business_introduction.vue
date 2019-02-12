@@ -24,9 +24,9 @@
             <h5>公告</h5>
             <p>本餐厅不使用饿了么配送，由肯德基宅急送官方品牌配送，会员用户无法享受免配送费服务</p>
         </div>
-        <div class="foot" @click="showOrder">
+        <!-- <div class="foot" @click="showOrder">
             <i class="iconfont icon-shanghua"></i>
-        </div>
+        </div> -->
     </div>
 </template>
 

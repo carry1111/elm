@@ -197,10 +197,8 @@ export default {
 
 <style lang="less" scoped>
     @import "./../../assets/less/common.less";
-    ._textflow{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    #order{
+        height: 2400px;
     }
     .content{
         display: flex;
@@ -307,5 +305,9 @@ export default {
             }
         }
     }
-    
+    ._textflow{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>
