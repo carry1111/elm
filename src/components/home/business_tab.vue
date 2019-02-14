@@ -47,8 +47,6 @@ export default {
     #business_tab{
         z-index:1;
         background:#fff;
-        min-height:100%;
-        position: relative;
         .nav{
             width:100%;
             box-sizing: border-box;

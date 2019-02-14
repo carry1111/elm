@@ -197,9 +197,6 @@ export default {
 
 <style lang="less" scoped>
     @import "./../../assets/less/common.less";
-    #order{
-        height: 2400px;
-    }
     .content{
         display: flex;
         display: -webkit-flex;

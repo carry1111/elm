@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <div style="height:100px;background:#aaa;"></div> -->
-    <businessIntroduction></businessIntroduction>
+    <!-- <businessIntroduction></businessIntroduction> -->
     <business-tab></business-tab>
   </div>
 </template>
