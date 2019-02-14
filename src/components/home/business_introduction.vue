@@ -60,6 +60,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    // #business_introduction{
+    //     position: relative;
+    //     z-index: 20;
+    //     background-color: #fff;
+    // }
     .shop_head{
         position: relative;
         .shop_photo{
