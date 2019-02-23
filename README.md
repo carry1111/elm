@@ -27,3 +27,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 预览地址
+See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github.io/ele/dist/index.html#/).
