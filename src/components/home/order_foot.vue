@@ -60,7 +60,7 @@ export default {
         right: 0;
         width: 100%;
         height: 1.3rem;
-        background-color: rgba(61,61,63,.9);
+        background-color: rgb(61,61,63);
         color: #fff;
         text-align: left;
         .gouwuche{
