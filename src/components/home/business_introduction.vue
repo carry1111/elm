@@ -1,9 +1,9 @@
 <template>
     <div id="business_introduction">
-        <!-- <div class="shop_head">
+        <div class="shop_head">
             <span class="shop_photo"></span>
             <span class="guanzhu"></span>
-        </div> -->
+        </div>
         <div class="shop_name">
             <h2>{{result.business_name}}</h2>
             <p><span>评价{{result.score}}</span><span>月售{{result.monthly_sales_volume}}</span><span>商家配送约{{result.delivery_time}}分钟</span></p>
@@ -59,31 +59,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    // #business_introduction{
-    //     position: relative;
-    //     z-index: 20;
-    //     background-color: #fff;
-    // }
-    // .shop_head{
-    //     position: relative;
-    //     .shop_photo{
-    //         display: inline-block;
-    //         width:60px;
-    //         height:60px;
-    //         margin-top:-30px;
-    //         background:#ddd;
-    //     }
-    //     .guanzhu{
-    //         display: inline-block;
-    //         width:40px;
-    //         height:40px;
-    //         border-radius: 20px;
-    //         position:absolute;
-    //         right:20px;
-    //         top:-20px;
-    //         background:#ddd;
-    //     }
-    // }
+    #business_introduction{
+        position: relative;
+        z-index: 20;
+        background-color: #fff;
+    }
+    .shop_head{
+        position: relative;
+        .shop_photo{
+            display: inline-block;
+            width:60px;
+            height:60px;
+            margin-top:-30px;
+            background:#ddd;
+        }
+        .guanzhu{
+            display: inline-block;
+            width:40px;
+            height:40px;
+            border-radius: 20px;
+            position:absolute;
+            right:20px;
+            top:-20px;
+            background:#ddd;
+        }
+    }
     .shop_name{
         text-align: center;
     }

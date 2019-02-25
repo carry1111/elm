@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <!-- <div style="height:100px;background:#aaa;"></div> -->
-    <!-- <businessIntroduction></businessIntroduction> -->
+    <businessJieshao></businessJieshao>
     <business-tab></business-tab>
   </div>
 </template>
 
 <script>
-import businessIntroduction from '@/components/home/business_introduction'
+import businessJieshao from '@/components/home/business_jieshao'
 import businessTab from '@/components/home/business_tab'
 import bus from '@/assets/js/bus.js'
 export default {
@@ -18,7 +18,7 @@ export default {
   //   }
   // },
   components: {
-    businessIntroduction,
+    businessJieshao,
     businessTab
   },
   // mounted(){

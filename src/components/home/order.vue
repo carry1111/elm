@@ -53,57 +53,11 @@ import BScroll from 'better-scroll'
 import orderFooter from '@/components/home/order_foot.vue'
 import count from '@/components/basic/count.vue'
 import response from '@/assets/data/goods.json'
-// const response = require('@/assets/data/goods.json');
 const ERR_OK = 0;
 export default {
     name:'order',
     data(){
         return{
-            // goodsList:[
-            //     {
-            //         name:'优惠',
-            //         foods:[
-            //             {name:'皮蛋瘦肉粥',sellCount:8,price:23},
-            //             {name:'奥堡单人',sellCount:5,price:43},
-            //             {name:'皮蛋瘦肉粥',sellCount:8,price:73},
-            //             {name:'奥堡单人',sellCount:5,price:88},
-            //             {name:'皮蛋瘦肉粥',sellCount:8,price:11},
-            //             {name:'皮蛋瘦肉粥',sellCount:8,price:23},
-            //         ],
-            //     },
-            //     {
-            //         name:'炸鸡啤酒',
-            //         foods:[
-            //             {name:'百威啤酒',sellCount:8,price:23},
-            //             {name:'86元炸鸡啤酒',sellCount:5,price:16},
-            //             {name:'116元炸鸡啤酒',sellCount:5,price:99},
-            //         ],
-            //     },
-            //     {
-            //         name:'夜宵套餐',
-            //         foods:[
-            //             {name:'冬菇滑稽粥',sellCount:8,price:12},
-            //             {name:'葡式蛋挞',sellCount:5,price:11},
-            //             {name:'八块香辣鸡翅',sellCount:8,price:23},
-            //             {name:'超级翅桶多人餐',sellCount:5,price:76},
-            //             {name:'十翅分享桶',sellCount:5,price:16},
-            //         ],
-            //     },
-            //     {
-            //         name:'夜宵单品',
-            //         foods:[
-            //             {name:'九珍果汁饮料',sellCount:8,price:26},
-            //             {name:'醇豆浆',sellCount:5,price:41},
-            //             {name:'安心大油条',sellCount:8,price:23},
-            //             {name:'芙蓉荟蔬汤',sellCount:5,price:46},
-            //             {name:'新奥尔良烤翅',sellCount:8,price:23},
-            //             {name:'香辣鸡腿堡',sellCount:5,price:46},
-            //             {name:'新奥尔良烤鸡腿堡',sellCount:5,price:46},
-            //             {name:'1.25升装百事可乐',sellCount:8,price:23},
-            //             {name:'二块香辣鸡翅炸鸡',sellCount:5,price:46},
-            //         ],
-            //     },
-            // ],
             goodsList: [],
             listHeight: [],
             scrollY: 0,
@@ -156,19 +110,14 @@ export default {
             });
             this.foodsScroll.on('scroll', (pos) => {
                 this.scrollY = Math.abs(Math.round(pos.y));
-                // console.log(this.scrollY);
             });
         },
         _calculateHeight() {
-            // console.log( this.$refs.foodsList[0].offsetHeight);
             let foodsList = this.$refs.foodsList;
             let height = 0;
             this.listHeight.push(height);
-            // console.log(foodsList);
             for (let i = 0; i < foodsList.length; i++) {
                 let item = foodsList[i];
-                console.log(foodsList);
-                console.log(foodsList[i].clientHeight);
                 height += item.clientHeight;
                 this.listHeight.push(height);
             }
@@ -192,16 +141,19 @@ export default {
         }
     },
     created(){
-        // console.log( this.$refs.foodsList[0].offsetHeight);
         if (response.error === ERR_OK) {
             this.goodsList = response.goodsList;
             this.$nextTick(() => {
-                this._initScroll();
-                this._calculateHeight(); 
-                // console.log(this.listHeight);
+                setTimeout(()=>{
+                    this._initScroll();
+                    this._calculateHeight(); 
+                },0)
             });
         }
         this.initSelectNum(); 
+    },
+    mounted(){
+        
     },
     components:{
         orderFooter,
@@ -212,15 +164,12 @@ export default {
 
 <style lang="less" scoped>
     @import "./../../assets/less/common.less";
-    .li{
-        // height:1000px;
-    }
     .content{
         display: flex;
         display: -webkit-flex;
         text-align: left;
         position: absolute;
-        top: 1rem;
+        top: 4rem;
         bottom: 1.3rem;
         .fs(16);
         width: 100%;
@@ -246,8 +195,8 @@ export default {
         }
         .foods-wrapper{
             flex: 1;
+
             .item-title{
-                // .ml(8);
                 .fs(12);
                 .h(16);
                 padding:.2rem .05rem;
@@ -264,7 +213,7 @@ export default {
                 position: relative;
                 display: flex;
                 .h(120);
-                padding:.2rem 0;
+                padding:.3rem 0;
                 .left{
                     .w(120);
                     .h(120);
@@ -287,7 +236,7 @@ export default {
                     }
                 }
                 .right{
-                    right: .2rem;
+                    right: .4rem;
                     bottom: .2rem;
                     position: absolute;
                     .reduce{

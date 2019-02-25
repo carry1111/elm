@@ -47,8 +47,6 @@ export default {
     #business_tab{
         z-index:1;
         background:#fff;
-        position: relative;
-        .mh(667);
         .nav{
             width:100%;
             box-sizing: border-box;
@@ -63,7 +61,6 @@ export default {
             .h(37.5);
             .lh(37.5);
             .fs(16);
-            // margin:0 auto;
             padding:0 .4rem;
             .li{
                 width:33.3%;
