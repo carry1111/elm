@@ -16,12 +16,13 @@ npm run build
 ```
 
 
-
 ### 预览地址
-See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github.io/ele/dist/index.html#/).（请用chrome手机模式预览）
 
+See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github.io/ele/dist/index.html#/).（请用chrome手机模式预览）
+ 
 
 ### 项目布局
+```
 ├── build                                       // webpack配置文件
 ├── config                                      // 项目打包路径
 ├── dist                                        // 上线项目文件，放在服务器即可正常访问
@@ -52,3 +53,4 @@ See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github
 ├── README.md                                   // 项目说明
 ├── vue.config.js                               // 是一个可选的配置文件
 .
+```
