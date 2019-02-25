@@ -9,6 +9,7 @@ export default new Router({
     {
       path: "/",
       name: "home",
+<<<<<<< HEAD
       // redirect: { name: 'business_tab' },
       component: Home,
     },
@@ -40,5 +41,15 @@ export default new Router({
     //   name: "order",
     //   component: () =>import("@/components/home/order.vue"),
     // },
+=======
+      component: Home
+    },
+    // {
+    //   path: "/about",
+    //   name: "about",
+    //   component: () =>
+    //     import(/* webpackChunkName: "about" */ "./views/About.vue")
+    // }
+>>>>>>> 9aa6a9895a647ce05f11f4dce9d9d5357a858748
   ]
 });

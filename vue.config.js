@@ -1,9 +1,17 @@
 
+<<<<<<< HEAD
 module.exports = {
 //     // 基本路径
     baseUrl: './',
 //     // 输出文件目录
     outputDir: 'dist',
+=======
+// module.exports = {
+//     // 基本路径
+//     baseUrl: 'localhost:8080',
+//     // 输出文件目录
+//     outputDir: 'dist',
+>>>>>>> 9aa6a9895a647ce05f11f4dce9d9d5357a858748
 //     // eslint-loader 是否在保存的时候检查
 //     lintOnSave: true,
 //     // use the full build with in-browser compiler?
@@ -52,4 +60,8 @@ module.exports = {
 //     pluginOptions: {
 //      // ...
 //     }
+<<<<<<< HEAD
    }
+=======
+//    }
+>>>>>>> 9aa6a9895a647ce05f11f4dce9d9d5357a858748
