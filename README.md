@@ -23,11 +23,6 @@ See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github
 
 ### 项目布局
 ```
-<<<<<<< HEAD
-├── build                                       // webpack配置文件
-├── config                                      // 项目打包路径
-=======
->>>>>>> 9aa6a9895a647ce05f11f4dce9d9d5357a858748
 ├── dist                                        // 上线项目文件，放在服务器即可正常访问
 ├── public
 │   ├── favicon.ico                             // 图标
@@ -55,8 +50,4 @@ See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github
 ├── postcss.config.js                           // 转换css的工具
 ├── README.md                                   // 项目说明
 ├── vue.config.js                               // 是一个可选的配置文件
-<<<<<<< HEAD
-.
-=======
->>>>>>> 9aa6a9895a647ce05f11f4dce9d9d5357a858748
 ```
