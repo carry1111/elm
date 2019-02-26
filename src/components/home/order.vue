@@ -162,8 +162,15 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-    @import "./../../assets/less/common.less";
+<style lang="scss" scoped>
+    @function pxToRem($px){
+        @return $px / 37.5 * 1rem;   
+    }
+    @mixin textflow{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .content{
         display: flex;
         display: -webkit-flex;
@@ -171,111 +178,106 @@ export default {
         position: absolute;
         top: 4rem;
         bottom: 1.3rem;
-        .fs(16);
+        font-size: pxToRem(16);
         width: 100%;
         overflow: hidden;
         flex: 1;
-        .menu-wrapper{
-            flex: 0 0 2.4rem;
-            background: #f3f5f7;
-            .li{
-                .h(40);
-                .lh(40);
-                .pl(2);
-                position: relative;
-                .itemSelect{
-                    position: absolute;
-                    top: .1rem;
-                    right: .1rem;
-                }   
+    }
+    .menu-wrapper{
+        flex: 0 0 2.4rem;
+        background: #f3f5f7;
+        .li{
+            height: pxToRem(40);
+            line-height: pxToRem(40);
+            padding-left: pxToRem(2);
+            position: relative;
+            .itemSelect{
+                position: absolute;
+                top: .1rem;
+                right: .1rem;
+            }   
+        }
+        .active{
+            background: #fff;
+        }
+    }
+    .foods-wrapper{
+        flex: 1;
+        .item-title{
+            font-size: pxToRem(12);
+            height: pxToRem(16);
+            padding:.2rem .05rem;
+            background-color: #f5f5f5;
+            .item-name{
+                margin-right: pxToRem(4);
             }
-            .active{
-                background: #fff;
+            .item-desc{
+                color: #999;
+                @include textflow
             }
         }
-        .foods-wrapper{
-            flex: 1;
+        .parent{
+            position: relative;
+            display: flex;
+            height: pxToRem(120);
+            padding: .3rem 0;
+            .left{
+                width: pxToRem(120);
+                height: pxToRem(120);
+            }
+            .center{
+                position: relative;
+                width: pxToRem(120);
+                height: pxToRem(120);
+                .food-name{
+                    @include textflow
+                }
+                .sell-count{
+                    color:#999;
+                    @include textflow
+                    font-size: pxToRem(12);
+                }
+                .food-price{
+                    position:absolute;
+                    bottom:0;
+                }
+            }
+            .right{
+                right: .4rem;
+                bottom: .2rem;
+                position: absolute;
+                .reduce{
+                    display: inline-block;
+                    width: pxToRem(22);
+                    height: pxToRem(22);
+                    background-image: url('./../../assets/images/reduce.png');
+                    background-size:pxToRem(22);
+                }
+                .add{
+                    display: inline-block;
+                    width: pxToRem(22);
+                    height: pxToRem(22);
+                    background-image: url('./../../assets/images/add.png');
+                    background-size:pxToRem(22);
+                }
+                .num{
+                    display: inline-block;
+                    vertical-align: top;
+                    padding: .08rem .13rem 0;
+                }
+            }
+        }
+        .reduce,.add,.num{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .reduce{
+            font-size: pxToRem(24);
+        }
+        .add{
+            color: blue;
+            font-size: pxToRem(28);
+        }
+    }
 
-            .item-title{
-                .fs(12);
-                .h(16);
-                padding:.2rem .05rem;
-                background-color: #f5f5f5;
-                .item-name{
-                    .mr(4);
-                }
-                .item-desc{
-                    color: #999;
-                    ._textflow
-                }
-            }
-            .parent{
-                position: relative;
-                display: flex;
-                .h(120);
-                padding:.3rem 0;
-                .left{
-                    .w(120);
-                    .h(120);
-                }
-                .center{
-                    position: relative;
-                    .w(120);
-                    .h(120);
-                    .food-name{
-                        ._textflow
-                    }
-                    .sell-count{
-                        color:#999;
-                        ._textflow;
-                        .fs(12);
-                    }
-                    .food-price{
-                        position:absolute;
-                        bottom:0;
-                    }
-                }
-                .right{
-                    right: .4rem;
-                    bottom: .2rem;
-                    position: absolute;
-                    .reduce{
-                        display: inline-block;
-                        .w(22);
-                        .h(22);
-                        background-image: url('./../../assets/images/reduce.png');
-                        background-size:22px;
-                    }
-                    .add{
-                        display: inline-block;
-                        .w(22);
-                        .h(22);
-                        background-image: url('./../../assets/images/add.png');
-                        background-size:22px;
-                    }
-                    .num{
-                        display: inline-block;
-                        vertical-align: top;
-                        padding: .08rem .13rem 0;
-                    }
-                }
-            }
-            .reduce,.add,.num{
-                display: inline-block;
-                vertical-align: middle;
-            }
-            .reduce{
-                .fs(24);
-            }
-            .add{
-                color:blue;
-                .fs(28);
-            }
-        }
-    }
-    ._textflow{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 </style>
