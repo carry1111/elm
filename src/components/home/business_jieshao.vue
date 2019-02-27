@@ -25,21 +25,32 @@ export default {
 </script>
 <style lang="scss" scoped>
     .jieshao{
+        position: relative;
         box-sizing: border-box;
         height: 3rem;
         padding: .2rem;
-        background-color: #f5f5f5;
+        background-color: #fff;
+        &::after{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            border-top: 1px solid #ccc;
+            transform: scaleY(0.5);
+            -webkit-transform: scaleY(0.5);
+        }
     }
     .info{
         text-align: left;
         position: relative;
-    }
-    .info::after,.info::before{
-        display: table;
-        content:'';
-    }
-    .info::after{
-        clear:both;
+        &::after,&::before{
+            display: table;
+            content:'';
+        }
+        &::after{
+            clear:both;
+        }
     }
     .info-photo{
         float:left;

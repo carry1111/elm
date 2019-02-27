@@ -234,7 +234,7 @@ export default {
                 }
                 .sell-count{
                     color:#999;
-                    @include textflow
+                    @include textflow;
                     font-size: pxToRem(12);
                 }
                 .food-price{
