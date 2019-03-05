@@ -22,6 +22,7 @@
             <ul class="cart-list">
                 <li class="item clearfix" v-for="(item,index) in this.cartList" :key="index">
                     <span class="food-name">{{item['name']}}</span>
+                    <!-- <add-cart class="food-num" :food="item"></add-cart> -->
                     <span class="food-num">{{item['num']}}</span>
                     <span class="food-price">{{item['price']}}</span>
                 </li>
@@ -31,6 +32,7 @@
 </template>
 <script>
 import count from '@/components/basic/count.vue'
+import addCart from '@/components/home/add_cart.vue'
 import {mapState,mapActions} from 'vuex'
 import Bus from '@/assets/js/bus.js'
 export default {
@@ -89,6 +91,7 @@ export default {
     },
     components:{
         count,
+        addCart,
     }
 }
 </script>

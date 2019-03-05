@@ -168,6 +168,12 @@ export default {
             this.itemSelectNumArray = [];
             this.totalNum = 0;
             this.initSelectNum();
+        }),
+        Bus.$on('add_cart',()=>{
+            this.totalNum += 1;
+        })
+        Bus.$on('reduce_cart',()=>{
+            this.totalNum -= 1;
         })
     },
     components:{
