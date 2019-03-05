@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive include="home">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
-<style lang="less">
+<style lang="scss">
+@import '@/assets/scss/common.scss';
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 0.3rem;

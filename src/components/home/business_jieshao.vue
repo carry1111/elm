@@ -3,7 +3,7 @@
         <div class="info">
             <div class="info-photo">
                 <div class="photo">
-                    <img src="https://elm.cangdu.org/img/169223a3ea727542.jpg">
+                    <!-- <img src="https://elm.cangdu.org/img/169223a3ea727542.jpg"> -->
                 </div>
             </div>
             <div class="info-text">
