@@ -32,27 +32,31 @@
                                     <p><span class="sell-count">月售{{food.sellCount}}</span></p>
                                     <span class="food-price">${{food.price}}</span>
                                 </div>
-                                <div class="right">
-                                    <i class="reduce" @click="remove_cart(food.price,index1,index2)" v-show="selectNumArray[index1][index2]"></i>
+                                <add-cart class="right" :food="food" :num="selectNumArray[index1][index2]" :index1="index1" :index2="index2" @add="add_cart" @reduce="reduce_cart"></add-cart>
+                                <!-- <div class="right">
+                                    <i class="reduce" @click="reduce_cart(food.id,food.price,food.name,index1,index2)" v-show="selectNumArray[index1][index2]"></i>
                                     <span class="num" v-text="selectNumArray[index1][index2]" v-show="selectNumArray[index1][index2]"></span>
-                                    <i class="add" @click="add_cart(food.price,index1,index2)"></i>
-                                </div>
+                                    <i class="add" @click="add_cart(food.id,food.price,food.name,index1,index2)"></i>
+                                </div> -->
                             </li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
-        <order-footer :price="totalPrice" :num="totalNum"></order-footer>
+        <shop-cart :price="totalPrice" :num="totalNum"></shop-cart>
     </div>
 </template>
 
 <script>
 import api from '@/api/goods'
 import BScroll from 'better-scroll'
-import orderFooter from '@/components/home/order_foot.vue'
+import shopCart from '@/components/home/shop_cart.vue'
 import count from '@/components/basic/count.vue'
+import addCart from '@/components/home/add_cart.vue'
 import response from '@/assets/data/goods.json'
+import {mapState,mapActions} from 'vuex'
+import Bus from '@/assets/js/bus.js'
 const ERR_OK = 0;
 export default {
     name:'order',
@@ -69,6 +73,9 @@ export default {
         }
     },
     computed:{
+        ...mapState({
+            'cartList': state => state.shop_cart.cartList,
+        }),
         currentMenuIndex() {
             let len = this.listHeight.length; 
             for (let i = 0; i < len; i++) {
@@ -82,6 +89,9 @@ export default {
         },
     },
     methods:{
+        ...mapActions([
+            'ADD_CART','REMOVE_CART',
+        ]),
         getGoodsList(){
             api.getGoodslist().then(res=>{
 
@@ -127,17 +137,19 @@ export default {
             var el = foodsList[index1];
             this.foodsScroll.scrollToElement(el,300);
         },
-        add_cart(price,index1,index2){
-            this.totalPrice += price;
+        add_cart(food,index1,index2){
+            this.totalPrice += food.price;
             this.selectNumArray[index1][index2] += 1;
             this.itemSelectNumArray[index1] += 1;
             this.totalNum +=1; 
+            this.ADD_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
         },
-        remove_cart(price,index1,index2){
-            this.totalPrice -= price;
+        reduce_cart(food,index1,index2){
+            this.totalPrice -= food.price;
             this.selectNumArray[index1][index2] -= 1;
             this.itemSelectNumArray[index1] -= 1;
             this.totalNum -= 1;
+            this.REMOVE_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
         }
     },
     created(){
@@ -146,31 +158,57 @@ export default {
             this.$nextTick(() => {
                 setTimeout(()=>{
                     this._initScroll();
-                    this._calculateHeight(); 
+                    this._calculateHeight();
                 },0)
             });
         }
         this.initSelectNum(); 
     },
     mounted(){
-        
+        Bus.$on('clear_cart_bus',()=>{
+            this.selectNumArray = [];
+            this.itemSelectNumArray = [];
+            this.totalNum = 0;
+            this.totalPrice = 0;
+            this.initSelectNum();
+        }),
+        Bus.$on('add_cart',(food)=>{
+            this.totalNum += 1;
+            this.totalPrice += food.price;
+            this.goodsList.forEach((value,index)=>{
+                var len = value.foods.length;
+                for(var i=0; i<len; i++){
+                    if(value.foods[i]['id'] === food.id){
+                        this.selectNumArray[index][i] += 1;
+                        this.itemSelectNumArray[index] += 1;
+                    }   
+                }
+            })
+        })
+        Bus.$on('reduce_cart',(food)=>{
+            this.totalNum -= 1;
+            this.totalPrice -= food.price;
+            this.goodsList.forEach((value,index)=>{
+                var len = value.foods.length;
+                for(var i=0; i<len; i++){
+                    if(value.foods[i]['id'] === food.id){
+                        this.selectNumArray[index][i] -= 1;
+                        this.itemSelectNumArray[index] -= 1;
+                    }   
+                }
+            })
+        })
     },
     components:{
-        orderFooter,
+        shopCart,
         count,
+        addCart,
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @function pxToRem($px){
-        @return $px / 37.5 * 1rem;   
-    }
-    @mixin textflow{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    @import 'src/assets/scss/common.scss';
     .content{
         display: flex;
         display: -webkit-flex;

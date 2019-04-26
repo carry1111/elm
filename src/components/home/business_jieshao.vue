@@ -3,7 +3,7 @@
         <div class="info">
             <div class="info-photo">
                 <div class="photo">
-                    <img src="https://elm.cangdu.org/img/169223a3ea727542.jpg">
+                    <!-- <img src="https://elm.cangdu.org/img/169223a3ea727542.jpg"> -->
                 </div>
             </div>
             <div class="info-text">
@@ -19,8 +19,14 @@
     </header>
 </template>
 <script>
+// import carryjs from 'carryjs_ddt'
 export default {
+    methods:{
 
+    },
+    mounted(){
+        // console.log(carryjs._typeof('1'));
+    }
 }
 </script>
 <style lang="scss" scoped>

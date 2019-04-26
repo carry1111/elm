@@ -4,40 +4,40 @@
         {
             "name":"优惠",
             "foods":[
-                {"name":"皮蛋瘦肉粥","sellCount":8,"price":23},
-                {"name":"奥堡单人","sellCount":5,"price":43},
-                {"name":"皮蛋瘦肉粥","sellCount":8,"price":73},
-                {"name":"奥堡单人","sellCount":5,"price":88},
-                {"name":"皮蛋瘦肉粥","sellCount":8,"price":11},
-                {"name":"皮蛋瘦肉粥","sellCount":8,"price":23}
+                {"id":1,"name":"皮蛋瘦肉粥","sellCount":8,"price":23},
+                {"id":2,"name":"奥堡单人","sellCount":5,"price":43},
+                {"id":3,"name":"皮蛋瘦肉粥","sellCount":8,"price":73},
+                {"id":4,"name":"奥堡单人","sellCount":5,"price":88},
+                {"id":5,"name":"皮蛋瘦肉粥","sellCount":8,"price":11},
+                {"id":6,"name":"皮蛋瘦肉粥","sellCount":8,"price":23}
             ]
         },
         {
             "name":"炸鸡啤酒",
             "foods":[
-                {"name":"百威啤酒","sellCount":8,"price":23},
-                {"name":"86元炸鸡啤酒","sellCount":5,"price":16},
-                {"name":"116元炸鸡啤酒","sellCount":5,"price":99}
+                {"id":7,"name":"百威啤酒","sellCount":8,"price":23},
+                {"id":8,"name":"86元炸鸡啤酒","sellCount":5,"price":16},
+                {"id":9,"name":"116元炸鸡啤酒","sellCount":5,"price":99}
             ]
         },
         {
             "name":"夜宵套餐",
             "foods":[
-                {"name":"冬菇滑稽粥","sellCount":8,"price":12},
-                {"name":"葡式蛋挞","sellCount":5,"price":11},
-                {"name":"八块香辣鸡翅","sellCount":8,"price":23},
-                {"name":"超级翅桶多人餐","sellCount":5,"price":76},
-                {"name":"十翅分享桶","sellCount":5,"price":16}
+                {"id":10,"name":"冬菇滑稽粥","sellCount":8,"price":12},
+                {"id":11,"name":"葡式蛋挞","sellCount":5,"price":11},
+                {"id":12,"name":"八块香辣鸡翅","sellCount":8,"price":23},
+                {"id":13,"name":"超级翅桶多人餐","sellCount":5,"price":76},
+                {"id":14,"name":"十翅分享桶","sellCount":5,"price":16}
             ]
         },
         {
             "name":"夜宵单品",
             "foods":[
-                {"name":"九珍果汁饮料","sellCount":8,"price":26},
-                {"name":"醇豆浆","sellCount":5,"price":41},
-                {"name":"安心大油条","sellCount":8,"price":23},
-                {"name":"芙蓉荟蔬汤","sellCount":5,"price":46},
-                {"name":"新奥尔良烤翅","sellCount":8,"price":23}
+                {"id":15,"name":"九珍果汁饮料","sellCount":8,"price":26},
+                {"id":16,"name":"醇豆浆","sellCount":5,"price":41},
+                {"id":17,"name":"安心大油条","sellCount":8,"price":23},
+                {"id":18,"name":"芙蓉荟蔬汤","sellCount":5,"price":46},
+                {"id":19,"name":"新奥尔良烤翅","sellCount":8,"price":23}
             ]
         }
     ]
