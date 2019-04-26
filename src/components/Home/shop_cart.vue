@@ -22,8 +22,8 @@
             <ul class="cart-list">
                 <li class="item clearfix" v-for="(item,index) in this.cartList" :key="index">
                     <span class="food-name">{{item['name']}}</span>
-                    <!-- <add-cart class="food-num" :food="item"></add-cart> -->
-                    <span class="food-num">{{item['num']}}</span>
+                    <add-cart class="food-num" :num="item.num" :food="item" @add="add_cart" @reduce="reduce_cart"></add-cart>
+                    <!-- <span class="food-num">{{item['num']}}</span> -->
                     <span class="food-price">{{item['price']}}</span>
                 </li>
             </ul>
@@ -42,6 +42,13 @@ export default {
             is_show_cart: false,
         }
     },
+    watch:{
+        num(newV,oldV){
+            if(newV === 0){
+                this.is_show_cart = false;
+            }
+        }
+    },
     computed:{
         ...mapState({
             'cartList': state => state.shop_cart.cartList,
@@ -49,7 +56,7 @@ export default {
         text1(){
             if(this.price == 0){
                 return "￥100起送";
-            }else if(this.price > 100){
+            }else if(this.price >= 100){
                 return "去结算";
             }else{
                 return "还差￥" + (100-this.price) + "起送";
@@ -68,7 +75,7 @@ export default {
     },
     methods:{
         ...mapActions([
-            'CLEAR_CART'
+            'CLEAR_CART','ADD_CART','REMOVE_CART',
         ]),
         show_cart(){
             if( this.num > 0){
@@ -81,12 +88,19 @@ export default {
         clear_cart(){
             Bus.$emit('clear_cart_bus');
             this.CLEAR_CART();
-            this.hide_cart();
         },
         checkout(){
             if(this.price >= 100){
                 this.$router.push('checkout');
             }
+        },
+        add_cart(food){
+            this.ADD_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
+            Bus.$emit('add_cart',food);
+        },
+        reduce_cart(food){
+            this.REMOVE_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
+            Bus.$emit('reduce_cart',food);
         }
     },
     components:{

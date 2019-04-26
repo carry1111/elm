@@ -1,4 +1,4 @@
-const axios = require('Axios');
+const axios = require('axios');
 
 var ajax = axios.create({
     baseURL: '',

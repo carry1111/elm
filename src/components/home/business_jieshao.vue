@@ -19,8 +19,14 @@
     </header>
 </template>
 <script>
+// import carryjs from 'carryjs_ddt'
 export default {
+    methods:{
 
+    },
+    mounted(){
+        // console.log(carryjs._typeof('1'));
+    }
 }
 </script>
 <style lang="scss" scoped>
