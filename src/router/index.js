@@ -7,7 +7,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: "/",
+      path: "/home",
       name: "home",
       // redirect: { name: 'business_tab' },
       component: () =>import("@/views/Home.vue"),
@@ -17,6 +17,31 @@ export default new Router({
       name: 'checkout',
       component: () =>import("@/views/Checkout.vue"),
     },
+    {
+      path: '/',
+      name: 'page',
+      component: () =>import("@/views/Page.vue"),
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () =>import("@/views/Profile.vue"),
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () =>import("@/views/Login.vue"),
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () =>import("@/views/About.vue"),
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () =>import("@/views/Search.vue"),
+    }
     // {
     //   path: "/business_tab",
     //   name: "business_tab",
