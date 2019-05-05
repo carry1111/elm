@@ -19,7 +19,7 @@ vue + vue-router + vuex + mockjs + sass
 
 ### 预览地址
 
-[点我预览](https://carry1111.github.io/ele/dist/index.html#/).（请用chrome手机模式预览）
+[点我预览](https://carry1111.github.io/ele/dist/index.html#/)（请用chrome手机模式预览）
  
 
 ### 项目布局
