@@ -1,8 +1,17 @@
 <template>
   <div class="page">
-    <header>天河城百货</header>
+    <header class="header">
+        <div class="index">
+            <i class="iconfont icon-Shape"></i>
+            <span class="text">天河城</span>
+            <i class="iconfont icon-f11-copy"></i>
+        </div>
+    </header>
     <div class="search" @click="search">
-        <a class="content">搜索饿了么商家、商家名称</a>
+        <a class="content">
+            <i class="iconfont icon-sousuo"></i>
+            <span class="text">搜索饿了么商家、商家名称</span>
+        </a>
     </div>
     <mt-swipe :auto="0" class="foodentry">
         <mt-swipe-item>
@@ -122,12 +131,20 @@
             </ul>
         </mt-swipe-item>
     </mt-swipe>
-    <div class="index">
+    <div class="container">
         <div class="lego">
             <h3>品质套餐</h3>
             <div>搭配齐全吃得好</div>
-            <p>立即抢购</p>
+            <p>立即抢购 ></p>
             <img src="https://fuss10.elemecdn.com/e/ee/df43e7e53f6e1346c3fda0609f1d3png.png?imageMogr/format/webp/thumbnail/!282x188r/gravity/Center/crop/282x188/">
+        </div>
+        <div class="member">
+            <span class="left">
+                <i class="iconfont icon-huangguan"></i>
+                <span class="super">超级会员</span>
+                <span> 每月领20元红包</span>
+            </span>
+            <span class="right">立即开通</span>
         </div>
         <div class="banner">
             <mt-swipe :auto="2000">
@@ -161,22 +178,34 @@
         </ul>
     </div>
     <shoplist></shoplist>
+    <div class="backTop" v-show="isShowBackTop">
+        <a href="#">
+            <i class="iconfont icon-dingbu"></i>
+        </a>
+    </div>
     <!-- <foot></foot> -->
-    <ul class="foot clearfix">
+    <!-- <foot-one></foot-one> -->
+    <!-- <ul class="foot clearfix">
         <li class="li">首页</li>
         <router-link to="/home" class="li">发现</router-link>
         <li class="li">订单</li>
         <router-link to="/profile" class="li">我的</router-link>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
 import { Swipe, SwipeItem } from 'mint-ui';
 import foot from '@/components/common/foot.vue'
+import footOne from '@/components/common/foot_one.vue'
 import shoplist from '@/components/shop/shoplist.vue'
 export default {
     name: "page",
+    data(){
+        return{
+            isShowBackTop: false,
+        }
+    },
     methods:{
         getLocation:function() {
             if (navigator.geolocation) {
@@ -207,34 +236,69 @@ export default {
         },
         search(){
             this.$router.push('/search');
-        }
+        },
+        handleScroll(){
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            if(scrollTop >= 150){
+                this.isShowBackTop = true;
+            }else{
+                this.isShowBackTop = false;
+            }
+        },
     },
     components:{
         'mtSwipe':Swipe,
         'mtSwipeItem':SwipeItem,
         'foot':foot,
         'shoplist':shoplist,
+        'footOne':footOne,
     },
     mounted(){
         this.getLocation();
+        window.addEventListener('scroll',this.handleScroll);
     }
 };
 </script>
-
+<style lang="scss">
+.mint-swipe-indicator.is-active.is-active {
+    background: #00a6ff!important;
+}
+.mint-swipe-indicator {
+    width: .24rem!important;
+    height: .04rem!important;
+    display: inline-block!important;
+    background: #000!important;
+    opacity: .2!important;
+}
+</style>
 <style lang="scss" scoped>
     @import 'src/assets/scss/common.scss';
-    header{
-        height:.6rem;
-        padding:.3rem;
+    .header{
+        padding-top: .42rem;
+        padding-left: .3rem;
         background-image: linear-gradient(90deg,#0af,#0085ff);
         color:#fff;
         text-align: left;
         font-size:pxToRem(14);
-        font-weight: 700;
+        height:.7rem;
+        .index{
+            width:60%;
+            height:.4rem;
+            font-weight:700;
+            i{
+                font-size:pxToRem(14);
+            }
+            .text{
+                max-width: 80%;
+                margin: 0 .1rem;
+                font-size: .453333rem;
+                @include textflow
+            }
+        }
     }
     .search{
         background-image: linear-gradient(90deg,#0af,#0085ff);
-        height:.8rem;
+        height:.86rem;
         padding:.3rem;
         position: sticky;
         top:0;
@@ -242,10 +306,15 @@ export default {
         .content{
             display:block;
             width:100%;
-            height:.88rem;
-            line-height: .88rem;
+            line-height:.86rem;
             background-color:#fff;
             color:#999;
+            font-size:pxToRem(12);
+            border-radius: .026667rem;
+            .text{
+                margin-left:.1rem;
+                font-size:pxToRem(14);
+            }
         }
     }
     .foodentry{
@@ -278,25 +347,60 @@ export default {
             }
         }
     }
-    .index{
-        padding:.3rem;
+    .container{
+        padding:0 .3rem;
         .lego{
             position: relative;
             text-align: left;
-            padding-left:.2rem;
-            padding-top:.2rem;
-            margin-bottom:.2rem;
-            height:2.4rem;
+            padding-left:.4rem;
+            padding-top:.3rem;
+            margin-bottom:.1rem;
+            height:2.7rem;
             background: linear-gradient(0deg,#f4f4f4 5%,#fafafa 95%);
+            h3{
+                font-size:pxToRem(16);
+                font-weight:700;
+            }
             h3,div,p{
-                margin-bottom:.2rem;
+                margin-bottom:.15rem;
+            }
+            div{
+                color: #777;
+                font-size:pxToRem(13);
+            }
+            p{
+                color: #af8260;
+                font-weight: 700;
             }
             img{
                 position:absolute;
                 top:.2rem;
                 right:.2rem;
-                width:2.8rem;
-                height:2.2rem;
+                width:3.8rem;
+                height:2.5rem;
+            }
+        }
+        .member{
+            padding:.2rem .3rem;
+            display:flex;
+            display:-webkit-flex;
+            background-image: linear-gradient(90deg,#ffefc4,#f3dda0);
+            margin-bottom:.1rem;
+            .left{
+                flex:auto;
+                text-align:left;
+                i{
+                    // color:yellow;
+                    margin-right:.1rem;
+                }
+                .super{
+                    font-weight:700;
+                    font-size:pxToRem(16);
+                }
+            }
+            .right{
+                width:1.8rem;
+                padding:.1rem 0;
             }
         }
         .banner{
@@ -306,7 +410,7 @@ export default {
             background-color: #fff;
             text-align: center;
             position: relative;
-            margin-top:.2rem;
+            // margin-top:.2rem;
             img{
                 width:100%;
                 height:auto;
@@ -350,20 +454,39 @@ export default {
         width:100%;
         height:5rem;
     }
-    .foot{
-        position:fixed;
-        bottom:0;
-        left:0;
-        width:100%;
-        height:pxToRem(40);
-        line-height:pxToRem(40);
-        background-color:#fff;
-        border-top: .013333rem solid #ccc;
-        .li{
-            float:left;
-            width:25%;
-            text-align:center
+    .backTop{
+        position: fixed;
+        right: .5rem;
+        bottom:2.0rem;
+        z-index:9999;
+        a{
+            display:block;
+            width:1.2rem;
+            height:1.2rem;
+            line-height:1.2rem;
+            border:1px solid #ccc;
+            background-color:#fff;
+            border-radius:50%;
+            color:#000;
+            i{
+                font-size:pxToRem(18);
+            }
         }
     }
+    // .foot{
+    //     position:fixed;
+    //     bottom:0;
+    //     left:0;
+    //     width:100%;
+    //     height:pxToRem(40);
+    //     line-height:pxToRem(40);
+    //     background-color:#fff;
+    //     border-top: .013333rem solid #ccc;
+    //     .li{
+    //         float:left;
+    //         width:25%;
+    //         text-align:center
+    //     }
+    // }
 </style>
 

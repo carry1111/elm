@@ -1,4 +1,4 @@
-# ele
+# 仿饿了么首页和商家页面
 
 ## 安装项目依赖
 ```
@@ -14,11 +14,12 @@ npm run serve
 ```
 npm run build
 ```
-
+### 技术栈
+vue + vue-router + vuex + mockjs + sass
 
 ### 预览地址
 
-See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github.io/ele/dist/index.html#/).（请用chrome手机模式预览）
+[点我预览](https://carry1111.github.io/ele/dist/index.html#/).（请用chrome手机模式预览）
  
 
 ### 项目布局
@@ -36,6 +37,7 @@ See [https://carry1111.github.io/ele/dist/index.html#/](https://carry1111.github
 │   │   ├── home                                // 点餐页面组件
 │   ├── mock                                    // 模拟数据
 │   ├── views                                   // 页面
+│   │   ├── Page.vue                            // 首页
 │   │   ├── Home.vue                            // 点餐页
 │   ├── App.vue                                 // 页面入口文件
 │   ├── main.js                                 // 程序入口文件，加载各种公共组件

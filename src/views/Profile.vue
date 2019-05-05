@@ -9,12 +9,13 @@
               <p>登录后享受更多特权</p>
           </div>
       </div>
-      <foot></foot>
+      <!-- <foot-one></foot-one> -->
   </div>
 </template>
 
 <script>
 import foot from '@/components/common/foot.vue'
+import footOne from '@/components/common/foot_one.vue'
 export default {
     name: "profile",
     methods:{
@@ -23,7 +24,8 @@ export default {
         }
     },
     components:{
-        foot
+        foot,
+        footOne,
     }
 };
 </script>

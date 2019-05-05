@@ -17,7 +17,7 @@
               </section>
               <button class="btn">登录</button>
           </form>
-          <router-link class="link" to="about">关于我们</router-link>
+          <!-- <router-link class="link" to="/about">关于我们</router-link> -->
       </div>
   </div>
 </template>

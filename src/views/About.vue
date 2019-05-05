@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-      <topback></topback>
+      <!-- <topback></topback>
       <div class="markdown">
           <h3>公司</h3>
           <p>上海拉扎斯信息科技有限公司</p>
@@ -8,7 +8,7 @@
           <p>上海市普陀区金沙江路1518弄近铁城市广场401室</p>
           <h3>电话</h3>
           <p>(021) 8024-1717</p>
-      </div>
+      </div>  -->
   </div>
 </template>
 

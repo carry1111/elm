@@ -31,8 +31,22 @@ const business_info = ()=>{
     }
 }
 
+const shoplist = ()=>{
+    var shoplist = [];
+    for(let i = 0; i<100; i++){
+        let data = {
+            title: Random.cword( 3, 5 ),
+            score: Random.float( 3, 4, 0, 1 ),
+            img: Random.image(),
+        }
+        shoplist.push(data);
+    }
+    return shoplist;
+}
+
 
 
 // Mock.mock( url, post/get , 返回的数据)；
 Mock.mock('/news/test', 'get', produceNewsData);
 Mock.mock('/business_info', 'get', business_info);
+Mock.mock('/getShoplist', 'get', shoplist);
