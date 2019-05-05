@@ -6,6 +6,7 @@ import {} from './assets/js/rem.js';
 
 import '@/assets/css/reset.css'; 
 import '@/assets/css/common.css';
+import "mint-ui/lib/style.css"
 
 Vue.config.productionTip = false;
 
