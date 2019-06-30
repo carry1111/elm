@@ -260,16 +260,16 @@ export default {
 };
 </script>
 <style lang="scss">
-.mint-swipe-indicator.is-active.is-active {
-    background: #00a6ff!important;
-}
-.mint-swipe-indicator {
-    width: .24rem!important;
-    height: .04rem!important;
-    display: inline-block!important;
-    background: #000!important;
-    opacity: .2!important;
-}
+    .mint-swipe-indicator.is-active.is-active {
+        background: #00a6ff!important;
+    }
+    .mint-swipe-indicator {
+        width: .24rem!important;
+        height: .04rem!important;
+        display: inline-block!important;
+        background: #000!important;
+        opacity: .2!important;
+    }
 </style>
 <style lang="scss" scoped>
     @import 'src/assets/scss/common.scss';

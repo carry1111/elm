@@ -26,18 +26,12 @@
                             <li v-for="(food,index2) in item.foods"
                                 :key=index2 
                                 class="parent">
-                                <img class="left" src="//fuss10.elemecdn.com/8/78/193b76455b54bbd4e9dfdb0b88a2cjpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/">
-                                <div class="center">
-                                    <p class="food-name"><strong>{{food.name}}</strong></p>
-                                    <p><span class="sell-count">月售{{food.sellCount}}</span></p>
-                                    <span class="food-price">${{food.price}}</span>
-                                </div>
-                                <add-cart class="right" :food="food" :num="selectNumArray[index1][index2]" :index1="index1" :index2="index2" @add="add_cart" @reduce="reduce_cart"></add-cart>
-                                <!-- <div class="right">
-                                    <i class="reduce" @click="reduce_cart(food.id,food.price,food.name,index1,index2)" v-show="selectNumArray[index1][index2]"></i>
-                                    <span class="num" v-text="selectNumArray[index1][index2]" v-show="selectNumArray[index1][index2]"></span>
-                                    <i class="add" @click="add_cart(food.id,food.price,food.name,index1,index2)"></i>
-                                </div> -->
+                                <food-item :food=food 
+                                    :index1=index1 
+                                    :index2=index2 
+                                    @add="add_cart" 
+                                    @reduce="reduce_cart">
+                                </food-item>
                             </li>
                         </ul>
                     </li>
@@ -57,6 +51,7 @@ import addCart from '@/components/home/add_cart.vue'
 import response from '@/assets/data/goods.json'
 import {mapState,mapActions} from 'vuex'
 import Bus from '@/assets/js/bus.js'
+import foodItem from '@/components/home/food_item.vue'
 const ERR_OK = 0;
 export default {
     name:'order',
@@ -67,7 +62,6 @@ export default {
             scrollY: 0,
             totalPrice: 0,
             isShowReduce: false,
-            selectNumArray: [],
             itemSelectNumArray: [],
             totalNum: 0,
         }
@@ -101,13 +95,7 @@ export default {
         },
         initSelectNum(){
             this.goodsList.forEach((value)=>{
-                var len = value.foods.length;
-                var subArr = [];
                 this.itemSelectNumArray.push(0);
-                for(var i=0; i<len; i++){
-                    subArr.push(0);
-                }
-                this.selectNumArray.push(subArr);
             })
         },
          _initScroll() {
@@ -139,14 +127,12 @@ export default {
         },
         add_cart(food,index1,index2){
             this.totalPrice += food.price;
-            this.selectNumArray[index1][index2] += 1;
             this.itemSelectNumArray[index1] += 1;
             this.totalNum +=1; 
             this.ADD_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
         },
         reduce_cart(food,index1,index2){
             this.totalPrice -= food.price;
-            this.selectNumArray[index1][index2] -= 1;
             this.itemSelectNumArray[index1] -= 1;
             this.totalNum -= 1;
             this.REMOVE_CART({'id':food.id,'name':food.name,'price':food.price,'num':1});
@@ -166,7 +152,6 @@ export default {
     },
     mounted(){
         Bus.$on('clear_cart_bus',()=>{
-            this.selectNumArray = [];
             this.itemSelectNumArray = [];
             this.totalNum = 0;
             this.totalPrice = 0;
@@ -179,7 +164,6 @@ export default {
                 var len = value.foods.length;
                 for(var i=0; i<len; i++){
                     if(value.foods[i]['id'] === food.id){
-                        this.selectNumArray[index][i] += 1;
                         this.itemSelectNumArray[index] += 1;
                     }   
                 }
@@ -192,7 +176,6 @@ export default {
                 var len = value.foods.length;
                 for(var i=0; i<len; i++){
                     if(value.foods[i]['id'] === food.id){
-                        this.selectNumArray[index][i] -= 1;
                         this.itemSelectNumArray[index] -= 1;
                     }   
                 }
@@ -203,6 +186,7 @@ export default {
         shopCart,
         count,
         addCart,
+        foodItem,
     }
 }
 </script>
@@ -253,68 +237,6 @@ export default {
                 color: #999;
                 @include textflow
             }
-        }
-        .parent{
-            position: relative;
-            display: flex;
-            height: pxToRem(120);
-            padding: .3rem 0;
-            .left{
-                width: pxToRem(120);
-                height: pxToRem(120);
-            }
-            .center{
-                position: relative;
-                width: pxToRem(120);
-                height: pxToRem(120);
-                .food-name{
-                    @include textflow
-                }
-                .sell-count{
-                    color:#999;
-                    @include textflow;
-                    font-size: pxToRem(12);
-                }
-                .food-price{
-                    position:absolute;
-                    bottom:0;
-                }
-            }
-            .right{
-                right: .4rem;
-                bottom: .2rem;
-                position: absolute;
-                .reduce{
-                    display: inline-block;
-                    width: pxToRem(22);
-                    height: pxToRem(22);
-                    background-image: url('./../../assets/images/reduce.png');
-                    background-size:pxToRem(22);
-                }
-                .add{
-                    display: inline-block;
-                    width: pxToRem(22);
-                    height: pxToRem(22);
-                    background-image: url('./../../assets/images/add.png');
-                    background-size:pxToRem(22);
-                }
-                .num{
-                    display: inline-block;
-                    vertical-align: top;
-                    padding: .08rem .13rem 0;
-                }
-            }
-        }
-        .reduce,.add,.num{
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .reduce{
-            font-size: pxToRem(24);
-        }
-        .add{
-            color: blue;
-            font-size: pxToRem(28);
         }
     }
 
