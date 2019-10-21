@@ -24,6 +24,13 @@
             </div>
       </section>
       <section class="site">
+            <div class="item clearfix" v-for="(item, index) in list" :key="index">
+              <i class="iconfont icon-dizhi1 icon"></i>
+              <span class="text">{{item}}</span>
+              <i class="iconfont icon-icon jiantou"></i>
+            </div>
+      </section>
+      <!-- <section class="site">
           <div class="item clearfix">
               <i class="iconfont icon-dizhi1 icon"></i>
               <span class="text">我的地址</span>
@@ -58,7 +65,7 @@
               <span class="text">规则中心</span>
               <i class="iconfont icon-icon jiantou"></i>
           </div>
-      </section>
+      </section> -->
       <div class="yinsi">
           <a href="#">隐私政策</a>
       </div>
@@ -66,8 +73,14 @@
 </template>
 
 <script>
+import { list } from '@/data/myList.js'
 export default {
     name: "profile",
+    data() {
+        return {
+            list: list
+        }
+    },
     methods:{
         toLogin(){
             this.$router.push('/login');
@@ -137,22 +150,26 @@ export default {
         }
     }
     .site{
-        margin-top:.2rem;
-        background-color:#fff;
         .item{
-            height:1.2rem;
+            background-color: #fff;
+            height: 1.2rem;
             line-height: 1.2rem;
-            font-size:pxToRem(14);
+            font-size: pxToRem(14);
+            &:nth-child(1), 
+            &:nth-child(2), 
+            &:nth-child(4) {
+                margin-top: .2rem;
+            }
             .icon{
-                float:left;
-                width:1rem;
+                float: left;
+                width: 1rem;
             }
             .text{
-                float:left;
+                float: left;
             }
             .jiantou{
-                float:right;
-                width:1rem;
+                float: right;
+                width: 1rem;
             }
         }
     }

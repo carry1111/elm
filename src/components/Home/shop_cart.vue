@@ -11,7 +11,7 @@
                     <p>另需配送费1元</p>
                 </div>
             </div>
-            <span :class="{qisong: true,jiesuan: price >= 100}" v-text="this.text1" @click="checkout"></span>
+            <span :class="classObj" v-text="this.text1" @click="checkout"></span>
         </div>
         <div class="shop-cart" v-show="is_show_cart" @click="hide_cart"></div>
         <div class="cart" v-show="is_show_cart">
@@ -40,6 +40,10 @@ export default {
         return{
             selfPrice: 0,
             is_show_cart: false,
+            classObj: {
+                qisong: true,
+                jiesuan: this.price >= 100
+            }
         }
     },
     watch:{
