@@ -5,7 +5,7 @@
                 <i class="iconfont icon-SSS"></i>
                 <span>首页</span>
             </router-link>
-            <router-link to="/eee" :class="{li:true,bianse:this.index == 1 }" @click.native="bian1">
+            <router-link to="/discover" :class="{li:true,bianse:this.index == 1 }" @click.native="bian1">
                 <i class="iconfont icon-faxian1"></i>
                 <span>发现</span>
             </router-link>

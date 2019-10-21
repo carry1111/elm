@@ -16,116 +16,20 @@
     <mt-swipe :auto="0" class="foodentry">
         <mt-swipe-item>
             <ul>
-                <li>
+                <li v-for="(item,index) in navList1" :key="index">
                     <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/7/d8/a867c870b22bc74c87c348b75528djpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>美食</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>晚餐</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/c/7e/76a23eb90dada42528bc41499d6f8jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>商超福利</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/0/d0/dd7c960f08cdc756b1d3ad54978fdjpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>水果</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/7/0a/af108e256ebc9f02db599592ae655jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>医药健康</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/3/01/c888acb2c8ba9e0c813f36ec9e90ajpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>浪漫鲜花</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/e/58/bceb19258e3264e64fb856722c3c1jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>跑腿代购</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/b/7f/432619fb21a40b05cd25d11eca02djpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>汉堡披萨</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/c/21/e42997b86b232161a5a16ab813ae8jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>厨房生鲜</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/a/78/0fb469b2da210827ec16896e00420jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>炸鸡炸串</span>
+                        <img class="container" v-bind:src="item.imgUrl">
+                        <span>{{item.name}}</span>
                     </a>
                 </li>
             </ul>
         </mt-swipe-item>
         <mt-swipe-item>
              <ul>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/a/8a/ec21096d528b7cfd23cdd894f01c6jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>地方菜系</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/e/c7/b7ba9547aa700bd20d0420e1794a8jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>麻辣烫</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/0/1a/314b6da88ab6c7ae9828f91652d40jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>速食简餐</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/7/d6/6f2631288a44ec177204e05cbcb93jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>地方小吃</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/a/7b/b02bd836411c016935d258b300cfejpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>大牌惠吃</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>米粉面馆</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/5/1a/dc885d2ce022d2ee60495acafb795jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>包子粥店</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="container" src="https://fuss10.elemecdn.com/d/38/7bddb07503aea4b711236348e2632jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/">
-                        <span>速食简餐</span>
+                <li v-for="(item,index) in navList2" :key="index">
+                    <a href="">
+                        <img class="container" :src="item.imgUrl">
+                        <span>{{item.name}}</span>
                     </a>
                 </li>
             </ul>
@@ -183,19 +87,12 @@
             <i class="iconfont icon-dingbu"></i>
         </a>
     </div>
-    <!-- <foot></foot> -->
-    <!-- <foot-one></foot-one> -->
-    <!-- <ul class="foot clearfix">
-        <li class="li">首页</li>
-        <router-link to="/home" class="li">发现</router-link>
-        <li class="li">订单</li>
-        <router-link to="/profile" class="li">我的</router-link>
-    </ul> -->
   </div>
 </template>
 
 <script>
 import { Swipe, SwipeItem } from 'mint-ui';
+import { navList1, navList2} from '@/data/nav.js'
 import foot from '@/components/common/foot.vue'
 import footOne from '@/components/common/foot_one.vue'
 import shoplist from '@/components/shop/shoplist.vue'
@@ -204,40 +101,42 @@ export default {
     data(){
         return{
             isShowBackTop: false,
+            navList1: navList1,
+            navList2: navList2,
         }
     },
     methods:{
-        getLocation:function() {
+        getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
             } else {
                 console.log("该浏览器不支持定位功能！");
             }
         },
-        showPosition:function(position) {
+        showPosition(position) {
             console.log("纬度：" + position.coords.latitude + "\n经度："
                 + position.coords.longitude);
         },
-        showError:function (error) {
+        showError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
-                console.log("用户拒绝对获取地理位置的请求。");
-                break;
+                    console.log("用户拒绝对获取地理位置的请求。");
+                    break;
                 case error.POSITION_UNAVAILABLE:
-                console.log("位置信息是不可用的。");
-                break;
+                    console.log("位置信息是不可用的。");
+                    break;
                 case error.TIMEOUT:
-                console.log("请求用户地理位置超时。");
-                break;
+                    console.log("请求用户地理位置超时。");
+                    break;
                 case error.UNKNOWN_ERROR:
-                console.log("未知错误。");
-                break;
+                    console.log("未知错误。");
+                    break;
             }
         },
-        search(){
+        search() {
             this.$router.push('/search');
         },
-        handleScroll(){
+        handleScroll() {
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
             if(scrollTop >= 150){
                 this.isShowBackTop = true;
@@ -246,30 +145,30 @@ export default {
             }
         },
     },
-    components:{
-        'mtSwipe':Swipe,
-        'mtSwipeItem':SwipeItem,
-        'foot':foot,
-        'shoplist':shoplist,
-        'footOne':footOne,
+    components: {
+        'mtSwipe': Swipe,
+        'mtSwipeItem': SwipeItem,
+        'foot': foot,
+        'shoplist': shoplist,
+        'footOne': footOne,
     },
-    mounted(){
+    mounted() {
         this.getLocation();
-        window.addEventListener('scroll',this.handleScroll);
+        window.addEventListener('scroll', this.handleScroll);
     }
 };
 </script>
 <style lang="scss">
-.mint-swipe-indicator.is-active.is-active {
-    background: #00a6ff!important;
-}
-.mint-swipe-indicator {
-    width: .24rem!important;
-    height: .04rem!important;
-    display: inline-block!important;
-    background: #000!important;
-    opacity: .2!important;
-}
+    .mint-swipe-indicator.is-active.is-active {
+        background: #00a6ff!important;
+    }
+    .mint-swipe-indicator {
+        width: .24rem!important;
+        height: .04rem!important;
+        display: inline-block!important;
+        background: #000!important;
+        opacity: .2!important;
+    }
 </style>
 <style lang="scss" scoped>
     @import 'src/assets/scss/common.scss';
@@ -473,20 +372,5 @@ export default {
             }
         }
     }
-    // .foot{
-    //     position:fixed;
-    //     bottom:0;
-    //     left:0;
-    //     width:100%;
-    //     height:pxToRem(40);
-    //     line-height:pxToRem(40);
-    //     background-color:#fff;
-    //     border-top: .013333rem solid #ccc;
-    //     .li{
-    //         float:left;
-    //         width:25%;
-    //         text-align:center
-    //     }
-    // }
 </style>
 

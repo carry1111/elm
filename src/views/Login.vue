@@ -6,11 +6,11 @@
       <div>
           <form>
               <section class="section1">
-                  <input type="tel" maxlength="11" placeholder="手机号">
+                  <input type="tel" maxlength="11" placeholder="手机号" v-model="userName">
                   <button class="btn1">获取验证码</button>
               </section>
               <section class="section1">
-                  <input type="num" maxlength="6" placeholder="验证码">
+                  <input type="num" maxlength="6" placeholder="验证码" v-model="password">
               </section>
               <section class="section2">
                   新用户登录即自动注册，并表示已同意《用户服务协议》
@@ -23,9 +23,28 @@
 </template>
 
 <script>
+import api from '@/api/user'
 export default {
     name: "login",
+    data(){
+        return{
+            userName: '',
+            password: '',
+        }
+    },
     methods:{
+        // login(){
+        //     let postData = {
+        //         'username': this.userName,
+        //         'password': this.password
+        //     };
+        //     api.login({postData}).then(res=>{
+        //         console.log('111');
+        //         if(res.data.errorCode == 1){
+        //             console.log('登录成功');
+        //         }
+        //     })
+        // }
     },
     mounted(){
     }

@@ -46,6 +46,11 @@ export default new Router({
       path: '/shop',
       name: 'shop',
       component: () =>import("@/views/Shop.vue"),
+    },
+    {
+      path: '/discover',
+      name: 'discover',
+      component: () =>import("@/views/Discover.vue"),
     }
     // {
     //   path: "/business_tab",
