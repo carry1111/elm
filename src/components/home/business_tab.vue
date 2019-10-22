@@ -1,5 +1,6 @@
 <template>
     <div id="business_tab">
+        <businessJieshao></businessJieshao>
         <ul class="nav clearfix">
             <li class="li" @click="index=1">
                 <p :class="{item: true,jiacu: index == 1}">
@@ -27,6 +28,7 @@
 import business from '@/components/home/business'
 import evaluate from '@/components/home/evaluate'
 import order from '@/components/home/order'
+import businessJieshao from '@/components/home/business_jieshao'
 export default {
     name:'business_tab',
     data(){
@@ -38,6 +40,7 @@ export default {
         business, 
         evaluate,
         order,
+        businessJieshao,
     }
 }
 </script>
