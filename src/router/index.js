@@ -43,42 +43,9 @@ export default new Router({
       component: () =>import("@/views/Search.vue"),
     },
     {
-      path: '/shop',
-      name: 'shop',
-      component: () =>import("@/views/Shop.vue"),
-    },
-    {
       path: '/discover',
       name: 'discover',
       component: () =>import("@/views/Discover.vue"),
     }
-    // {
-    //   path: "/business_tab",
-    //   name: "business_tab",
-    //   component: () =>import("@/components/home/business_tab.vue"),
-      
-    //   children:[
-    //     {
-    //       path: "/order",
-    //       name: "order",
-    //       component: () =>import("@/components/home/order.vue"),
-    //     },
-    //     {
-    //       path: "/evaluate",
-    //       name: "evaluate",
-    //       component: () =>import("@/components/home/evaluate.vue"),
-    //     },
-    //     {
-    //       path: "/business",
-    //       name: "business",
-    //       component: () =>import("@/components/home/business.vue"),
-    //     },
-    //   ]
-    // },
-    // {
-    //   path: "/order1",
-    //   name: "order",
-    //   component: () =>import("@/components/home/order.vue"),
-    // },
   ]
 });
