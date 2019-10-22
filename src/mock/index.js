@@ -3,6 +3,9 @@ const Mock = require('mockjs');
 // 获取 mock.Random 对象
 const Random = Mock.Random;
 
+let num = 0;
+const maxNum = 100;
+
 // mock一组数据
 const produceNewsData = function() {
     let articles = [];
@@ -33,15 +36,21 @@ const business_info = ()=>{
 
 const shoplist = ()=>{
     var shoplist = [];
-    for(let i = 0; i<100; i++){
-        let data = {
-            title: Random.cword( 3, 5 ),
-            score: Random.float( 3, 4, 0, 1 ),
-            img: Random.image(),
+    num += 10;
+    
+    if(num <= maxNum) {
+        for(let i = 0; i < 10; i++){
+            let data = {
+                title: Random.cword( 3, 5 ),
+                score: Random.float( 3, 4, 0, 1 ),
+                img: Random.image(),
+            }
+            shoplist.push(data);
         }
-        shoplist.push(data);
+        return shoplist;
+    }else {
+        return 0;
     }
-    return shoplist;
 }
 
 

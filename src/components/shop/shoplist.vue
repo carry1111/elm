@@ -4,23 +4,48 @@
             <shop-item :item="item"></shop-item>
         </section>
         <loading :show="isLoading"></loading>
+        <load-more :show-loading="isshowLoadMore" :tip="tip"></load-more>
     </section>
 </template>
 <script>
-import { Loading } from 'vux'
-import api from '@/api/shop'
-import shopItem from '@/components/shop/shop_item.vue'
-export default{
-    data(){
-        return{
-            shoplist:[],
-            isLoading:true,
+import { Loading, LoadMore } from 'vux';
+import api from '@/api/shop';
+import shopItem from '@/components/shop/shop_item.vue';
+export default {
+    data() {
+        return {
+            shoplist: [],
+            isLoading: true,
+            isshowLoadMore: this.isToBottom,
+            tip: '正在加载...',
+            pageNum: 0,
+            hasMore: true,
         }
     },
-    methods:{
-        getShoplist(){
-            api.getShoplist().then(res=>{
-                this.shoplist = res.data;
+    watch: {
+        isToBottom(newValue, oldValue) {
+            if(newValue && this.hasMore) {
+                this.isshowLoadMore = true;
+                this.tip = '正在加载...';
+                this.getShoplist()
+            }else{
+                this.isshowLoadMore = false;
+                this.tip = '已经到底了';
+            }
+        }
+    },
+    props: {
+        isToBottom: {
+            type: Boolean,
+        }
+    },
+    methods: {
+        getShoplist() {
+            api.getShoplist().then(res => {
+                if(res.data === 0) {
+                    this.hasMore = false;
+                }
+                this.shoplist = this.shoplist.concat(res.data);
                 this.isLoading = false;
             }).catch(err=>{
                 this.isLoading = false;
@@ -28,8 +53,9 @@ export default{
         }
     },
     components:{
-        'loading':Loading,
-        'shopItem':shopItem,
+        'loading': Loading,
+        'shopItem': shopItem,
+        'loadMore': LoadMore,
     },
     mounted(){
         this.getShoplist();

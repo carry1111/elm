@@ -14,22 +14,12 @@
         </a>
     </div>
     <mt-swipe :auto="0" class="foodentry">
-        <mt-swipe-item>
+        <mt-swipe-item v-for="(item, index) in navList" :key="index">
             <ul>
-                <li v-for="(item,index) in navList1" :key="index">
+                <li v-for="(subItem, index) in item" :key="index">
                     <a href="#">
-                        <img class="container" v-bind:src="item.imgUrl">
-                        <span>{{item.name}}</span>
-                    </a>
-                </li>
-            </ul>
-        </mt-swipe-item>
-        <mt-swipe-item>
-             <ul>
-                <li v-for="(item,index) in navList2" :key="index">
-                    <a href="">
-                        <img class="container" :src="item.imgUrl">
-                        <span>{{item.name}}</span>
+                        <img class="container" :src="subItem.imgUrl">
+                        <span>{{subItem.name}}</span>
                     </a>
                 </li>
             </ul>
@@ -81,7 +71,7 @@
             <li>筛选</li>
         </ul>
     </div>
-    <shoplist></shoplist>
+    <shoplist :isToBottom="isBottom"></shoplist>
     <div class="backTop" v-show="isShowBackTop">
         <a href="#">
             <i class="iconfont icon-dingbu"></i>
@@ -92,7 +82,7 @@
 
 <script>
 import { Swipe, SwipeItem } from 'mint-ui';
-import { navList1, navList2} from '@/data/nav.js'
+import { navList } from '@/data/nav.js'
 import foot from '@/components/common/foot.vue'
 import footOne from '@/components/common/foot_one.vue'
 import shoplist from '@/components/shop/shoplist.vue'
@@ -101,8 +91,8 @@ export default {
     data(){
         return{
             isShowBackTop: false,
-            navList1: navList1,
-            navList2: navList2,
+            isBottom: false,
+            navList: navList,
         }
     },
     methods:{
@@ -136,13 +126,30 @@ export default {
         search() {
             this.$router.push('/search');
         },
-        handleScroll() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        showBackTop(scrollTop) {
             if(scrollTop >= 150){
                 this.isShowBackTop = true;
             }else{
                 this.isShowBackTop = false;
             }
+        },
+        isToBottom(scrollTop, windowHeight, scrollHeight) {
+            const HeightFromBottom = 4
+            if(scrollTop + windowHeight >= scrollHeight - HeightFromBottom) {
+                this.isBottom = true;
+            }else{
+                this.isBottom = false;
+            }
+        },
+        handleScroll() {
+            //变量scrollTop是滚动条滚动时，距离顶部的距离
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            //变量windowHeight是可视区的高度
+            let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+            //变量scrollHeight是滚动条的总高度
+   		    let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            this.showBackTop(scrollTop)
+            this.isToBottom(scrollTop, windowHeight, scrollHeight)
         },
     },
     components: {

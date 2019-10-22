@@ -30,42 +30,6 @@
               <i class="iconfont icon-icon jiantou"></i>
             </div>
       </section>
-      <!-- <section class="site">
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">我的地址</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-      </section>
-      <section class="site">
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">金币商城</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">分享拿20元现金</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-      </section>
-      <section class="site">
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">我的客服</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">下载饿了么app</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-          <div class="item clearfix">
-              <i class="iconfont icon-dizhi1 icon"></i>
-              <span class="text">规则中心</span>
-              <i class="iconfont icon-icon jiantou"></i>
-          </div>
-      </section> -->
       <div class="yinsi">
           <a href="#">隐私政策</a>
       </div>
