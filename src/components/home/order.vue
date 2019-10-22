@@ -164,18 +164,18 @@ export default {
       this.totalPrice = 0;
       this.initSelectNum();
     }),
-      Bus.$on("add_cart", food => {
-        this.totalNum += 1;
-        this.totalPrice += food.price;
-        this.goodsList.forEach((value, index) => {
-          var len = value.foods.length;
-          for (var i = 0; i < len; i++) {
-            if (value.foods[i]["id"] === food.id) {
-              this.itemSelectNumArray[index] += 1;
-            }
+    Bus.$on("add_cart", food => {
+      this.totalNum += 1;
+      this.totalPrice += food.price;
+      this.goodsList.forEach((value, index) => {
+        var len = value.foods.length;
+        for (var i = 0; i < len; i++) {
+          if (value.foods[i]["id"] === food.id) {
+            this.itemSelectNumArray[index] += 1;
           }
-        });
+        }
       });
+    });
     Bus.$on("reduce_cart", food => {
       this.totalNum -= 1;
       this.totalPrice -= food.price;
@@ -200,13 +200,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/scss/common.scss";
+#order {
+  position: relative;
+  // height: 854px;
+}
 .content {
   display: flex;
   display: -webkit-flex;
   text-align: left;
-  position: absolute;
-  top: 1rem;
-  bottom: 1.3rem;
+  // position: absolute;
+  // top: 1rem;
+  // bottom: 1.3rem;
+  height: 100%;
   font-size: pxToRem(16);
   width: 100%;
   overflow: hidden;
@@ -215,6 +220,7 @@ export default {
 .menu-wrapper {
   flex: 0 0 2.4rem;
   background: #f3f5f7;
+  height: pxToRem(580);
   .li {
     height: pxToRem(40);
     line-height: pxToRem(40);
@@ -233,6 +239,7 @@ export default {
 }
 .foods-wrapper {
   flex: 1;
+  height: pxToRem(580);
   .item-title {
     font-size: pxToRem(12);
     height: pxToRem(16);

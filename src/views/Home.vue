@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <!-- <div style="height:100px;background:#aaa;"></div> -->
-    <!-- <businessJieshao></businessJieshao> -->
+    <businessJieshao></businessJieshao>
     <business-tab></business-tab>
   </div>
 </template>
@@ -12,20 +11,10 @@ import businessTab from '@/components/home/business_tab'
 import bus from '@/assets/js/bus.js'
 export default {
   name: "home",
-  // data(){
-  //   return{
-  //     isShowTab:false,
-  //   }
-  // },
   components: {
     businessJieshao,
     businessTab
   },
-  // mounted(){
-  //   bus.$on('showOrder',()=>{
-  //     this.isShowTab = true;
-  //   })
-  // }
 };
 </script>
 
