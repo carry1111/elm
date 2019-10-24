@@ -46,9 +46,10 @@ export default {
         .then(res => {
           if (res.data === 0) {
             this.hasMore = false;
+          }else {
+            this.shoplist = this.shoplist.concat(res.data);
+            this.isLoading = false;
           }
-          this.shoplist = this.shoplist.concat(res.data);
-          this.isLoading = false;
         })
         .catch(err => {
           this.isLoading = false;
