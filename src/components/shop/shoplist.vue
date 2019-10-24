@@ -3,7 +3,7 @@
     <section class="shop" v-for="(item,index) in shoplist" :key="index">
       <shop-item :item="item"></shop-item>
     </section>
-    <loading :show="isLoading"></loading>
+    <!-- <loading :show="isLoading"></loading> -->
     <load-more :show-loading="isshowLoadMore" :tip="tip"></load-more>
   </section>
 </template>
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       shoplist: [],
-      isLoading: true,
+      // isLoading: true,
       isshowLoadMore: this.isToBottom,
       tip: "正在加载...",
       pageNum: 0,
@@ -48,16 +48,16 @@ export default {
             this.hasMore = false;
           }else {
             this.shoplist = this.shoplist.concat(res.data);
-            this.isLoading = false;
+            // this.isLoading = false;
           }
         })
         .catch(err => {
-          this.isLoading = false;
+          // this.isLoading = false;
         });
     }
   },
   components: {
-    loading: Loading,
+    // loading: Loading,
     shopItem: shopItem,
     loadMore: LoadMore
   },

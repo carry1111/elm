@@ -38,7 +38,7 @@ const shoplist = ()=>{
     var shoplist = [];
     num += 10;
     
-    if(num <= maxNum) {
+    if(num < maxNum) {
         for(let i = 0; i < 10; i++){
             let data = {
                 title: Random.cword( 3, 5 ),
@@ -49,6 +49,7 @@ const shoplist = ()=>{
         }
         return shoplist;
     }else {
+        num = 0;
         return 0;
     }
 }
