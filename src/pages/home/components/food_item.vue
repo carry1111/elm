@@ -1,14 +1,22 @@
 <template>
   <div class="parent">
-    <img class="left" :src="food.imgUrl" />
+    <div class="left">
+      <img :src="food.imgUrl" />
+    </div>
     <div class="center">
       <p class="food-name">
         <strong>{{food.name}}</strong>
       </p>
-      <p>
-        <span class="sell-count">月售{{food.sellCount}}</span>
+      <p  class="yuanliao">
+        <span>主要原料: 鸡肉</span>
       </p>
-      <span class="food-price">${{food.price}}</span>
+      <p class="count">
+        <span>月售{{food.sellCount}}</span><span>好评率100%</span>
+      </p>
+      <span class="food-price">
+        <i>¥</i>
+        <span>{{food.price}}</span>
+      </span>
     </div>
     <add-cart
       class="right"
@@ -22,7 +30,7 @@
   </div>
 </template>
 <script>
-import addCart from "@/components/home/add_cart.vue";
+import addCart from "@/pages/home/components/add_cart.vue";
 import Bus from "@/assets/js/bus.js";
 export default {
   data() {
@@ -66,46 +74,60 @@ export default {
 .parent {
   position: relative;
   display: flex;
-  height: pxToRem(120);
-  padding: 0.3rem 0;
+  height: pxToRem(100);
+  padding: .3rem 0 .3rem .3rem;
 }
 .left {
-  width: pxToRem(120);
-  height: pxToRem(120);
+  margin-right: pxToRem(10);
+  img {
+    width: pxToRem(100);
+    height: pxToRem(100);
+    border-radius: pxToRem(2);
+  }
 }
 .center {
   position: relative;
   width: pxToRem(120);
-  height: pxToRem(120);
+  height: pxToRem(100);
   .food-name {
     @include textflow;
   }
-  .sell-count {
+  .count span:not(:first-child) {
+    margin-left: pxToRem(6);
+  }
+  .yuanliao,
+  .count {
     color: #999;
     @include textflow;
-    font-size: pxToRem(12);
+    font-size: pxToRem(10);
+    margin: pxToRem(4) 0;
   }
   .food-price {
     position: absolute;
     bottom: 0;
+    color: #ff5339;
+    font-size: pxToRem(12);
+    span {
+      font-size: pxToRem(15);
+    }
   }
 }
 .right {
   right: 0.4rem;
-  bottom: 0.2rem;
+  bottom: 0.3rem;
   position: absolute;
   .reduce {
     display: inline-block;
     width: pxToRem(22);
     height: pxToRem(22);
-    background-image: url("./../../assets/images/reduce.png");
+    background-image: url("./../../../assets/images/reduce.png");
     background-size: pxToRem(22);
   }
   .add {
     display: inline-block;
     width: pxToRem(22);
     height: pxToRem(22);
-    background-image: url("./../../assets/images/add.png");
+    background-image: url("./../../../assets/images/add.png");
     background-size: pxToRem(22);
   }
   .num {

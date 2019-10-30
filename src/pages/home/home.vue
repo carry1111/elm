@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import businessJieshao from '@/components/home/business_jieshao'
-import businessTab from '@/components/home/business_tab'
+import businessJieshao from './components/business_jieshao'
+import businessTab from './components/business_tab'
 import bus from '@/assets/js/bus.js'
 export default {
   name: "home",
@@ -15,6 +15,9 @@ export default {
     businessJieshao,
     businessTab
   },
+  mounted () {
+    console.log('内容2');
+  }
 };
 </script>
 

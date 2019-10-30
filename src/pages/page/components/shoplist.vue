@@ -10,7 +10,7 @@
 <script>
 import { Loading, LoadMore } from "vux";
 import api from "@/api/shop";
-import shopItem from "@/components/shop/shop_item.vue";
+import shopItem from "@/pages/page/components/shop_item.vue";
 export default {
   data() {
     return {

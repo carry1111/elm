@@ -1,8 +1,8 @@
 <template>
   <div class="add-cart">
-    <i class="reduce" @click="reduce_cart(food,index1,index2)" v-show="num>0"></i>
+    <span class="reduce" @click="reduce_cart(food,index1,index2)" v-show="num>0"></span>
     <span class="num" v-show="num>0">{{num}}</span>
-    <i class="add" @click="add_cart(food,index1,index2)"></i>
+    <span class="add" @click="add_cart(food,index1,index2)"></span>
   </div>
 </template>
 <script>
@@ -53,27 +53,31 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "src/assets/scss/common.scss";
+@import "@/assets/scss/common.scss";
 .add-cart {
+  display: inline-flex;
+  align-items: center;
   .reduce {
     display: inline-block;
     width: pxToRem(22);
     height: pxToRem(22);
-    background-image: url("./../../assets/images/reduce.png");
+    background: url("./../../../assets/images/reduce.png");
     background-size: pxToRem(22);
+    vertical-align: middle;
   }
   .add {
     display: inline-block;
     width: pxToRem(22);
     height: pxToRem(22);
-    background-image: url("./../../assets/images/add.png");
+    background: url("./../../../assets/images/add.png");
     background-size: pxToRem(22);
+    vertical-align: middle;
   }
   .num {
     display: inline-block;
-    vertical-align: top;
-    box-sizing: border-box;
-    padding: 0 0.08rem;
+    width: pxToRem(32);
+    text-align: center;
+    vertical-align: middle;
   }
 }
 </style>

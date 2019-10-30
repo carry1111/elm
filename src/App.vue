@@ -3,19 +3,24 @@
     <keep-alive include="home">
       <router-view/>
     </keep-alive>
-    <foot-one></foot-one>
+    <foot-one v-show="isShowFoot"></foot-one>
   </div>
 </template>
 
 <script>
 import footOne from '@/components/common/foot_one.vue'
-export default{
-  components:{
+import { mapState } from 'vuex'
+export default {
+  components: {
     footOne,
+  },
+  computed: {
+    ...mapState({
+      isShowFoot: state => state.common.isShowFoot
+    })
   }
 }
 </script>
-
 
 <style lang="scss">
 // @import '@/assets/scss/common.scss';

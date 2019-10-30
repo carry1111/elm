@@ -8,6 +8,9 @@ import '@/assets/css/reset.css';
 import '@/assets/css/common.css';
 import "mint-ui/lib/style.css"
 
+import Vconsole from 'vconsole';
+new Vconsole();
+
 Vue.config.productionTip = false;
 
 require('./mock')

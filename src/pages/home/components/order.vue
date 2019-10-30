@@ -22,7 +22,7 @@
               <span class="item-desc" v-show="index1==0">大家喜欢吃,才是真好吃</span>
             </div>
             <ul>
-              <li v-for="(food,index2) in item.foods" :key="index2" class="parent">
+              <li v-for="(food,index2) in item.foods" :key="index2">
                 <food-item
                   :food="food"
                   :index1="index1"
@@ -43,13 +43,13 @@
 <script>
 import api from "@/api/goods";
 import BScroll from "better-scroll";
-import shopCart from "@/components/home/shop_cart.vue";
+import shopCart from "@/pages/home/components/shop_cart.vue";
 import count from "@/components/basic/count.vue";
-import addCart from "@/components/home/add_cart.vue";
+import addCart from "@/pages/home/components/add_cart.vue";
 import { goods as response } from "@/data/goods.js";
 import { mapState, mapActions } from "vuex";
 import Bus from "@/assets/js/bus.js";
-import foodItem from "@/components/home/food_item.vue";
+import foodItem from "@/pages/home/components/food_item.vue";
 const ERR_OK = 0;
 export default {
   name: "order",
@@ -202,15 +202,11 @@ export default {
 @import "src/assets/scss/common.scss";
 #order {
   position: relative;
-  // height: 854px;
+  height: pxToRem(630);
 }
 .content {
   display: flex;
-  display: -webkit-flex;
   text-align: left;
-  // position: absolute;
-  // top: 1rem;
-  // bottom: 1.3rem;
   height: 100%;
   font-size: pxToRem(16);
   width: 100%;

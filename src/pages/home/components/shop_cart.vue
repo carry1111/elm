@@ -20,8 +20,9 @@
         <span class="r" @click="clear_cart">清空</span>
       </div>
       <ul class="cart-list">
-        <li class="item clearfix" v-for="(item,index) in this.cartList" :key="index">
+        <li class="item" v-for="(item,index) in this.cartList" :key="index">
           <span class="food-name">{{item['name']}}</span>
+          <span class="food-price">{{item['price']}}</span>
           <add-cart
             class="food-num"
             :num="item.num"
@@ -29,8 +30,6 @@
             @add="add_cart"
             @reduce="reduce_cart"
           ></add-cart>
-          <!-- <span class="food-num">{{item['num']}}</span> -->
-          <span class="food-price">{{item['price']}}</span>
         </li>
       </ul>
     </div>
@@ -38,7 +37,7 @@
 </template>
 <script>
 import count from "@/components/basic/count.vue";
-import addCart from "@/components/home/add_cart.vue";
+import addCart from "@/pages/home/components/add_cart.vue";
 import { mapState, mapActions } from "vuex";
 import Bus from "@/assets/js/bus.js";
 export default {
@@ -46,10 +45,6 @@ export default {
     return {
       selfPrice: 0,
       is_show_cart: false,
-      classObj: {
-        qisong: true,
-        jiesuan: this.price >= 100
-      }
     };
   },
   watch: {
@@ -70,6 +65,12 @@ export default {
         return "去结算";
       } else {
         return "还差￥" + (100 - this.price) + "起送";
+      }
+    },
+    classObj() {
+      return {
+        'qisong': true,
+        'jiesuan': this.price >= 100
       }
     }
   },
@@ -128,7 +129,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "src/assets/scss/common.scss";
+@import "@/assets/scss/common.scss";
 @mixin absolute1 {
   position: absolute;
   top: 0;
@@ -174,7 +175,7 @@ export default {
   background-color: #3190e8;
   &::before {
     @include absolute1;
-    background: url(./../../assets/images/gouwuche2.png) 50% no-repeat;
+    background: url("./../../../assets/images/gouwuche2.png") 50% no-repeat;
     background-size: 0.6rem;
     content: "";
   }
@@ -183,7 +184,7 @@ export default {
   background-image: radial-gradient(circle, #363636 0.626667rem, #444 0);
   &::before {
     @include absolute1;
-    background: url(./../../assets/images/gouwuche1.png) 50% no-repeat;
+    background: url("./../../../assets/images/gouwuche1.png") 50% no-repeat;
     background-size: 0.6rem;
     content: "";
   }
@@ -254,24 +255,29 @@ export default {
   }
   .cart-list {
     li {
-      height: pxToRem(40);
-      line-height: pxToRem(40);
+      display: flex;
+      height: pxToRem(50);
+      align-items: center;
       font-size: pxToRem(16);
+      box-sizing: border-box;
       .food-name {
-        float: left;
+        flex: 5.5;
         box-sizing: border-box;
-        width: 60%;
+        width: 40%;
         padding-left: pxToRem(10);
       }
       .food-price {
-        float: right;
-        width: 20%;
+        flex: 2.5;
+        box-sizing: border-box;
+        width: 25%;
         color: rgb(255, 83, 57);
         font-weight: 700;
       }
       .food-num {
-        float: right;
-        width: 20%;
+        flex: 3;
+        box-sizing: border-box;
+        height: pxToRem(40);
+        width: 25%;
       }
     }
   }

@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import business from "@/components/home/business";
-import evaluate from "@/components/home/evaluate";
-import order from "@/components/home/order";
+import business from "@/pages/home/components/business.vue";
+import evaluate from "@/pages/home/components/evaluate.vue";
+import order from "@/pages/home/components/order.vue";
 export default {
   name: "business_tab",
   data() {
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import "./../../assets/less/common.less";
+@import "./../../../assets/less/common.less";
 #business_tab {
   z-index: 1;
   background: #fff;

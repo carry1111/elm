@@ -1,7 +1,7 @@
 <template>
     <header class="checkout-header">
         <div class="back" @click="back">
-            <img src="./../assets/images/zuo.png">
+            <img src="@/assets/images/zuo.png">
         </div>
         <h1>确认订单</h1>
     </header>
