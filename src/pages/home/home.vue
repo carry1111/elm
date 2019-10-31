@@ -14,9 +14,6 @@ export default {
   components: {
     businessJieshao,
     businessTab
-  },
-  mounted () {
-    console.log('内容2');
   }
 };
 </script>

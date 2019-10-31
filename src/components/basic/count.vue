@@ -15,8 +15,8 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
-    @import "./../../assets/less/common.less";
+<style lang="scss" scoped>
+    @import "@/assets/scss/common.scss";
     .count{
         display: inline-block;
         min-width: .4rem;
@@ -24,7 +24,7 @@ export default {
         line-height: .4rem;
         text-align: center;
         color: #fff;
-        .fs(12);
+        font-size: pxToRem(12);
         border-radius: .2rem;
         background-image: linear-gradient(-90deg,#ff7416,#ff3c15 98%);
     }   

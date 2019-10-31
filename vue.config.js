@@ -1,4 +1,4 @@
-
+const fs = require('fs')
 module.exports = {
 //     // 基本路径
     baseUrl: './',
@@ -32,7 +32,11 @@ module.exports = {
      // 开启 CSS source maps?
      sourceMap: false,
      // css预设器配置项
-     loaderOptions: {},
+     loaderOptions: {
+        sass: {
+            data: fs.readFileSync('src/assets/scss/common.scss', 'utf-8')
+        }
+     },
      // 启用 CSS modules for all css / pre-processor files.
      modules: false
     },

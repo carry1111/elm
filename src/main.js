@@ -4,12 +4,12 @@ import router from "./router";
 import store from "./store";
 import {} from './assets/js/rem.js';
 
-import '@/assets/css/reset.css'; 
-import '@/assets/css/common.css';
+import '@/assets/style/reset.scss'; 
+import '@/assets/style/common.scss';
 import "mint-ui/lib/style.css"
 
-import Vconsole from 'vconsole';
-new Vconsole();
+// import Vconsole from 'vconsole';
+// new Vconsole();
 
 Vue.config.productionTip = false;
 

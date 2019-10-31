@@ -45,7 +45,7 @@ export default{
 }
 </script>
 <style lang="scss" scoped>
-    @import 'src/assets/scss/common.scss';
+    @import '@/assets/scss/common.scss';
     .foot{
         position:fixed;
         bottom:0;

@@ -167,7 +167,6 @@ export default {
   mounted() {
     this.getLocation();
     window.addEventListener("scroll", this.handleScroll);
-    console.log('内容');
   }
 };
 </script>
@@ -184,7 +183,7 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-@import "src/assets/scss/common.scss";
+@import "@/assets/scss/common.scss";
 .header {
   padding-top: 0.42rem;
   padding-left: 0.3rem;
